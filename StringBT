@@ -1,0 +1,10 @@
+case MESSAGE_READ:
+            	int data_length,i,c;
+                byte[] readBuf = (byte[]) msg.obj;
+                data_length = msg.arg1;
+                if (data_length>=10) {
+                	String readMessage = new String(readBuf);
+                	readMessage = readMessage.substring(0,data_length );
+                	String sDevice = new String(readMessage.substring(0,1));
+                	String sEnt = new String(readMessage.substring(5,10));
+                	sEnt+=" ºC";
